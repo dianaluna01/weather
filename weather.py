@@ -17,9 +17,10 @@ class City():
 @app.route('/')
 def info():
     web_url = 'http://api.openweathermap.org/data/2.5/weather?q={}&units=imperial&appid=34a7ee6dda364f4215900946c63d9153'
+    city = 'New York'
     r = requests.get(web_url.format(city)).json()
     # print(r)
-    city = 'New York'
+   
     weather = {
         'city': city,
         'temperature': r['main']['temp'],
