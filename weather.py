@@ -19,11 +19,12 @@ def info():
     web_url = 'http://api.openweathermap.org/data/2.5/weather?q={}&units=imperial&appid=34a7ee6dda364f4215900946c63d9153'
     r = requests.get(web_url.format(city)).json()
     # print(r)
+    city = 'New York'
     weather = {
-        'city': city.name,
-        'temperature': 
-        'description': 
+        'city': city,
+        'temperature': r['main']['temp'],
+        'description': r['weather'][0]['description'],
     }
 
 
-    return render_template('index.html')
+    return render_template('index.html', weather=weather)
