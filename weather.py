@@ -16,7 +16,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def info():
-    web_url = 'http://api.openweathermap.org/data/2.5/weather?q={}&units=imperial&appid=34a7ee6dda364f4215900946c63d9153'
+    web_url = 'http://api.openweathermap.org/data/2.5/weather?q={}&units=imperial&appid=271d1234d3f497eed5b1d80a07b3fcd1'
     city = 'New York'
     
     r = requests.get(web_url.format(city)).json()
