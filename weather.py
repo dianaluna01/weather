@@ -1,32 +1,27 @@
 import requests
-from flask import Flask, render_template
-import sqlite3
+from flask import Flask
 
 app = Flask(__name__)
 
-# class City():
-#     tab = sqlite3.connect('cities.db')
-    
-#     tab.execute('''CREATE TABLE RANDOM_TEMPS
-#     (CITY   TEXT    NOT NULL,
-#     TEMPERATURE     INT     NOT NULL, 
-#     DESCRIPTION     TEXT    NOT NULL;)''')
-
-
-
 @app.route('/')
-def info():
-    web_url = 'http://api.openweathermap.org/data/2.5/weather?q={}&units=imperial&appid=271d1234d3f497eed5b1d80a07b3fcd1'
-    city = 'New York'
+def getZipCode():
+    return "Hello World"
+
+@app.route('/weatherResults')
+def displayInfo():
+    return "Weather Info!"
+
+
+if __name__ == '__main__':
+    app.run()
+
+
+def info(zipCode, api_key):
+    #removed {country code} because if not specified, it only defaults to USA codes
+    api_url = "http://api.openweathermap.org/data/2.5/weather?zip={}&appid={}".format(zipCode, api_key)
     
-    r = requests.get(web_url.format(city)).json()
-    # print(r)
-   
-    weather = {
-        'city' : city,
-        'temperature' : r['main']['temp'],
-        'description' : r['weather'][0]['description'],
-    }
-
-
-    return render_template('weather.html', weather=weather)
+    #will request data and return it in JSON format
+    r = requests.get(api_url)
+    return r.json()
+    
+print(info("11233", "34a7ee6dda364f4215900946c63d9153"))
