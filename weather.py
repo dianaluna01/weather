@@ -9,14 +9,15 @@ def getZipCode():
 
 @app.route('/weatherResults', methods=['POST'])
 def displayInfo():
-    return "Weather Info!"
+    zip_code = request.form['zipCode']
+    return "Zip Code: " + zip_code
 
 
 if __name__ == '__main__':
     app.run()
 
 
-def info(zipCode, api_key):
+def info(zip_code, api_key):
     #removed {country code} because if not specified, it only defaults to USA codes
     api_url = "http://api.openweathermap.org/data/2.5/weather?zip={}&appid={}".format(zipCode, api_key)
     
