@@ -1,11 +1,11 @@
 import requests
-from flask import Flask
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
 @app.route('/')
 def getZipCode():
-    return "Hello World"
+    return render_template('weather.html') 
 
 @app.route('/weatherResults')
 def displayInfo():
