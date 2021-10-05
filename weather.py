@@ -7,7 +7,7 @@ app = Flask(__name__)
 def getZipCode():
     return render_template('weather.html') 
 
-@app.route('/weatherResults', )
+@app.route('/weatherResults', methods=['POST'])
 def displayInfo():
     return "Weather Info!"
 
