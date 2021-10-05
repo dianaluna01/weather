@@ -4,7 +4,7 @@
 </head>
 <body>
     <h2>Weather App By Zip Code</h2>
-    <form action="{{ url_ for('displayInfo') }}" method="post"> 
+    <form action="{{ url_ for('render_results') }}" method="post"> 
         Enter Zip Code: <input type="text" name="zipCode"><br>
         <input type="submit" value="Submit">
     </form>
