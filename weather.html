@@ -1,12 +1,12 @@
 <html>
-    <head>
-        <title>Weather App</title>
-    </head>
-    <body>
-        <h2>Weather App By Zip Code</h2>
-        <form> 
-            Enter Zip Code: <input type="text" name="zipCode"><br>
-            <input type="Submit" value="Submit">
-        </form>
-    </body>
+<head>
+    <title>Weather App</title>
+</head>
+<body>
+    <h2>Weather App By Zip Code</h2>
+    <form action="{{ url_ for('getWeatherInfo') }}" method="post"> 
+        Enter Zip Code: <input type="text" name="zipCode"><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
 </html>
