@@ -8,7 +8,7 @@ def weatherDashboard():
     return render_template('weather.html') 
 
 @app.route('/results', methods=['POST'])
-def displayInfo():
+def render_results():
     zip_code = request.form['zipCode']
 
     api_key = "34a7ee6dda364f4215900946c63d9153"
